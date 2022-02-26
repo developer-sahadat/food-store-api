@@ -1,0 +1,262 @@
+.all-product {
+    display: grid;
+    margin: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+
+.header-tag-color {
+    color: #333;
+}
+
+.banner-section {
+    background-image: url(images/home-bg.jpg);
+    background-repeat: no-repeat;
+}
+
+.my-btn {
+    border: .15rem solid red;
+    padding: .40rem 2rem;
+    background: #fff;
+    color: black;
+    font-size: 1.2rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    border-radius: .25rem;
+}
+
+.my-btn::before {
+    content: "";
+    width: 0%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: black;
+    z-index: -1;
+    transition: 0.3s linear;
+
+}
+
+.my-btn:hover {
+    color: white;
+}
+
+.my-btn:hover::before {
+    content: "";
+    left: 0;
+    width: 100%;
+    color: white;
+
+}
+
+.banner-img {
+    width: 100%;
+    animation: imgAn 3s linear infinite;
+}
+
+@keyframes imgAn {
+
+    0%,
+    100% {
+        transform: translateY(0rem);
+    }
+
+    50% {
+        transform: translateY(3rem);
+    }
+}
+
+.fa-star {
+    padding: 0 2px;
+    color: #FFDA3F;
+}
+
+.work-img {
+    border: .85rem solid white;
+    border-radius: 50%;
+    box-shadow: 7px 10px 5px rgb(231, 231, 231), -3px 3px 10px rgb(230, 230, 230);
+}
+
+
+/* -- Our Customers Reviews section -- */
+.our-customer-item {
+    background: #333333;
+    border: .80rem solid white;
+    border-radius: 10px;
+    box-shadow: 7px 10px 5px rgb(231, 231, 231), -3px -7px 10px rgb(230, 230, 230);
+
+}
+
+.customer-img img {
+    height: 9rem;
+    width: 9rem;
+    border-radius: 50%;
+    border: .80rem solid #fff;
+    margin-top: -8rem;
+    object-fit: cover;
+}
+
+.our-speciality {
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.our-speciality .speciality-img {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: all 0.2s linear;
+}
+
+.our-speciality:hover .speciality-img {
+    top: 0;
+}
+
+.content {
+    transition: all 0.2s linear;
+}
+
+.our-speciality:hover .content {
+    transform: translateY(100%);
+}
+
+.food-gallary {
+    border-radius: .25rem;
+
+}
+
+.gallery-conten {
+    background: rgba(255, 255, 255, .9);
+    position: absolute;
+    left: 0;
+    top: 100%;
+    transition: all .3s linear;
+}
+
+.food-gallary:hover .gallery-conten {
+    top: 0;
+}
+
+* --------------------------------------------------------------------------------------- */
+/* Loader
+/* --------------------------------------------------------------------------------------- */
+
+.o-page-loader {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity .5s;
+    background: rgb(44, 62, 80);
+    z-index: 999;
+}
+
+.o-page-loader--content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.o-page-loader--spinner {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    margin: 20px auto;
+    animation: rotate-plane 1.2s infinite ease-in-out;
+    -webkit-animation: rotate-plane 1.2s infinite ease-in-out;
+}
+
+.o-page-loader--message {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* --------------------------------------------------------------------------------------- */
+/* Loader
+/* --------------------------------------------------------------------------------------- */
+
+.o-page-loader {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity .5s;
+    background: rgb(44, 62, 80);
+    z-index: 999;
+}
+
+.o-page-loader--content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.o-page-loader--spinner {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(255, 255, 255);
+    margin: 20px auto;
+    animation: rotate-plane 1.2s infinite ease-in-out;
+    -webkit-animation: rotate-plane 1.2s infinite ease-in-out;
+}
+
+.o-page-loader--message {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Arial', sans-serif;
+}
+
+/* --------------------------------------------------------------------------- */
+/* Animation - Loading Spinner
+/* --------------------------------------------------------------------------- */
+
+@-webkit-keyframes rotate-plane {
+    0% {
+        -webkit-transform: perspective(120px)
+    }
+
+    50% {
+        -webkit-transform: perspective(120px) rotateY(180deg)
+    }
+
+    100% {
+        -webkit-transform: perspective(120px) rotateY(180deg) rotateX(180deg)
+    }
+}
+
+@keyframes rotate-plane {
+    0% {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+    }
+
+    50% {
+        transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+        -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+    }
+
+    100% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+        -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    }
+}
