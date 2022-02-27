@@ -159,47 +159,50 @@ const bestSellingFood=food=>{
 // order page
 
 function orderNow(id){
-console.log(id);
+
 const url=`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
 
 fetch(url)
 .then(res=>res.json())
-.then(res=>{
-    
-console.log(res);
-const div=document.createElement('div')
+.then(data=>orderPages(data)) 
 
-div.innerHTML=`
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
-  <div  class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <div class="d-flex m-2 justify-content-center align-items-center ">
-      <div class="card border-0 shadow-none  w-50">
-      <img src="${res.meals[0].strMealThumb}" class=" img-fluied rounded-start" alt="...">
-          
-      </div>
-      <div class="ms-5 w-50">
-          <h3  >Title: ${res.meals[0].strIngredient2}</h3>
-          <h3>Price: $10</h3>
-          <p  ><span class='h4'>Description:</span> ${res.meals[0].strInstructions.slice(0,107)}</p>
-          <p ><span class='h3'>Review: </span> <span class='text-warning'> <i class="fa-solid fa-star "></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> </span> </p>
-         
-      </div>
+}
+
+
+const orderPages=(data)=>{
+const product_page=document.getElementById('product-page');
+
+product_page.textContent='';
+  const div=document.createElement('div')
+
+  div.innerHTML=`
+  <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
-      </div>
-    
-    </div>
+  <div class="modal-body">
+  <div class="d-flex m-2 justify-content-center align-items-center ">
+  <div class="card border-0 shadow-none  w-50">
+  <img src="${data.meals[0].strMealThumb}" class=" img-fluied rounded-start" alt="...">
+      
+  </div>
+  <div class="ms-5 w-50">
+      <h3  >Title: ${data.meals[0].strIngredient2}</h3>
+      <h3>Price: $10</h3>
+      <p  ><span class='h4'>Description:</span> ${data.meals[0].strInstructions.slice(0,107)}</p>
+      <p ><span class='h3'>Review: </span> <span class='text-warning'> <i class="fa-solid fa-star "></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> </span> </p>
+     
   </div>
 </div>
+  </div>
 
-`
-document.body.appendChild(div)
-}) 
+</div>
+  `
 
+  product_page.appendChild(div)
+  // document.body.appendChild(div)
+
+  
 }
  
